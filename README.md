@@ -47,6 +47,9 @@ $recursiveProvider = new yswery\DNS\RecursiveProvider($options);
 
 $stackableResolver = new yswery\DNS\StackableResolver(array($jsonStorageProvider, $recursiveProvider));
 
+For get stats:
+$stackableResolver = new yswery\DNS\ResolverStats(array($jsonStorageProvider, $recursiveProvider));
+
 // Creating a new instance of our class
 $dns = new yswery\DNS\Server($stackableResolver);
 

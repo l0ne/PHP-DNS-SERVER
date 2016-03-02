@@ -14,11 +14,12 @@ class StackableResolver {
         $this->resolvers = $resolvers;
     }
 
-    public function get_answer($question) 
+    public function get_answer($question, $ip, $port)
     {
         foreach ($this->resolvers as $resolver) {
             $answer = $resolver->get_answer($question);
             if ($answer) {
+                $this->sendStats($answer, $ip, $port);
                 return $answer;
             }
         }

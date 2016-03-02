@@ -70,7 +70,7 @@ class Server {
         $answer = $this->ds_decode_rr($buffer, $offset, $data['ancount']);
         $authority = $this->ds_decode_rr($buffer, $offset, $data['nscount']);
         $additional = $this->ds_decode_rr($buffer, $offset, $data['arcount']);
-        $answer = $this->ds_storage->get_answer($question);
+        $answer = $this->ds_storage->get_answer($question, $ip, $port);
         $flags['qr'] = 1;
         $flags['ra'] = 0;
 
